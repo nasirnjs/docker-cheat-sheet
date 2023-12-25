@@ -229,10 +229,10 @@ COPY . /app
 CMD ["python", "app.py"]
 ```
 **Steps 3** Build and run docker image.
-# Build the Docker image.\
+Build the Docker image.\
 `docker build -t nasirnjs:hello-python:001`
 
-# Run the Docker container.\
+Run the Docker container.\
 `docker run nasirnjs:hello-python:001`
 
 
