@@ -90,7 +90,7 @@ Want to remove container named "my-container".\
 ## Why a Docker container exits!!!
 Docker containers are designed to run a specific command or process and exit when that command or process completes. The default behavior is to start the specified command or process inside the container and stop when that command or process finishes execution.\
 Docker containers run as long as the process inside the container is active.\
-Example:\
+Example:
 
 Default Shell Behavior (Container Stops Immediately).\
 `docker run busybox`
@@ -176,7 +176,7 @@ Attach to a running container (not recommended for long-term use).\
 
 Run an interactive shell inside a container.\
 `docker container exec -it b71f15d33b60 /bin/bash`\
-`docker container run -it ubuntu`\
+`docker container run -it ubuntu`
 
 Check container host Name.\
 `docker container exec b71f15d hostname`	
@@ -208,6 +208,33 @@ Remove all unused images.\
 
 Remove all images.\
 `docker rmi $(docker images -q)`
+
+
+## Build a simple Docker Image
+
+**Here's a basic Dockerfile for a Python "Hello, World!" application.**
+
+**Steps 1** Create a `app.py` file and add print("Hello, World!")\
+`echo "print('Hello, World!')" > app.py`
+
+**Steps 2** Create a `Dockerfile` and write Dockerize Python `Hello, World!` application.
+```bash
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
+# Set the working directory in the container
+WORKDIR /app
+# Copy the current directory contents into the container at /app
+COPY . /app
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
+**Steps 3** Build and run docker image.
+# Build the Docker image.\
+`docker build -t nasirnjs:hello-python:001`
+
+# Run the Docker container.\
+`docker run nasirnjs:hello-python:001`
+
 
 
 ## Publishing Ports:
