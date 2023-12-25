@@ -174,13 +174,18 @@ Check specific container log runtime.\
 Attach to a running container (not recommended for long-term use).\
 `docker attach <containerID>`
 
-docker exec -it <containerID> <command>: Run an interactive shell inside a container.
-docker container run -it ubuntu
-docker container exec b71f15d hostname	//Check container host Name
-docker container exec -it b71f15d33b60 /bin/bash	//Enete container bash
-docker container stats	//Live stream of containers resource usage statistics
-docker container top nginx 5ac4	//Single container resources consumptions
-docker container stats nginx 5ac4	//Multiple containers stats by name and ID
+Run an interactive shell inside a container.\
+`docker container exec -it b71f15d33b60 /bin/bash`\
+`docker container run -it ubuntu`\
+
+Check container host Name.\
+`docker container exec b71f15d hostname`	
+
+Single container resources consumptions.\
+`docker container top nginx 5ac4`
+
+Multiple containers stats by name and ID.\
+`docker container stats nginx 5ac4`	
 
 ## Docker Images and Tag:
 List of all image.\
