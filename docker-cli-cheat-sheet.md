@@ -156,17 +156,24 @@ Run a container with Name.\
 Rename a container.\
 `docker rename my-nginx new-nginx`
 
-Get the container ID by its name
+Get the container ID by its name.\
 `docker inspect --format='{{.Id}}' nginx`
 
 
 ## Container Logs and Stats:
-docker logs <containerID>: Display the logs of a container.
-docker stats <containerID>: Display a live stream of container resource usage statistics.
-docker exec 266 cat /var/log/nginx/access.log
+Display the logs of a container.\
+`docker logs <containerID>`
+
+Display a live stream of container resource usage statistics.\
+`docker stats <containerID>`
+
+Check specific container log runtime.\
+`docker exec 266 cat /var/log/nginx/access.log`
 
 ## Container Interaction:
-docker attach <containerID>: Attach to a running container (not recommended for long-term use).
+Attach to a running container (not recommended for long-term use).\
+`docker attach <containerID>`
+
 docker exec -it <containerID> <command>: Run an interactive shell inside a container.
 docker container run -it ubuntu
 docker container exec b71f15d hostname	//Check container host Name
@@ -214,17 +221,6 @@ docker cp
 docker container prune: Remove all stopped containers.
 docker container stop $(docker container ps -q): Stop all running containers.
 docker container rm $(docker ps -aq): Remove all containers.
-
-
-
-
-
-
-
-
-
-
-
 
 
 [Ref](https://docs.docker.com/engine/reference/run/)
