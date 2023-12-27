@@ -247,6 +247,16 @@ Remove all images.\
 
 ## Publishing Ports:
 
+Publishing a Port.\
+`docker run -d -p <host_port>:<container_port> --name my_container my_image`
+
+Publish all exposed ports to random ports on the host.\
+`docker run -d -P --name web_server nginx`
+
+To see the actual mappings, you can use.\
+`docker port my_container`
+
+
 
 ## docker volume:
 docker cp
