@@ -232,6 +232,8 @@ Pull an image from a registry.\
 Show detailed information about an image.\
 `docker image inspect nginx`
 
+<img src="image/docker-image-tag.png" alt="Docker Image Taging explaination" width="800"/>
+
 Tag the existing Image with the New Name.\
 `docker tag old-image:old-tag new-image:new-tag`
 
