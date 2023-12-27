@@ -187,6 +187,32 @@ Single container resources consumptions.\
 Multiple containers stats by name and ID.\
 `docker container stats nginx 5ac4`	
 
+Remove all stopped containers.\
+`docker container prune`
+
+## Build a simple Docker Image
+
+**Here's a basic Dockerfile for a Python "Hello, World!" application.**
+
+**Steps 1** Create a `app.py` file and add print("Hello, World!")
+
+`echo "print('Hello, World!')" > app.py`
+
+**Steps 2** Create a `Dockerfile` and write Dockerize Python `Hello, World!` application.
+```bash
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
+# Set the working directory in the container
+WORKDIR /app
+# Copy the current directory contents into the container at /app
+COPY . /app
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
+**Steps 3** Build and run docker image.\
+`docker build -t nasirnjs:hello-python:001`\
+`docker run nasirnjs:hello-python:001`
+
 ## Docker Images and Tag:
 List of all image.\
 `docker image ls`
@@ -208,30 +234,6 @@ Remove all unused images.\
 
 Remove all images.\
 `docker rmi $(docker images -q)`
-
-
-## Build a simple Docker Image
-
-**Here's a basic Dockerfile for a Python "Hello, World!" application.**
-
-**Steps 1** Create a `app.py` file and add print("Hello, World!")\
-`echo "print('Hello, World!')" > app.py`
-
-**Steps 2** Create a `Dockerfile` and write Dockerize Python `Hello, World!` application.
-```bash
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
-# Set the working directory in the container
-WORKDIR /app
-# Copy the current directory contents into the container at /app
-COPY . /app
-# Run app.py when the container launches
-CMD ["python", "app.py"]
-```
-**Steps 3** Build and run docker image
-`docker build -t nasirnjs:hello-python:001`\
-`docker run nasirnjs:hello-python:001`
-
 
 
 ## Publishing Ports:
