@@ -187,6 +187,15 @@ Single container resources consumptions.\
 Multiple containers stats by name and ID.\
 `docker container stats nginx 5ac4`	
 
+Inspecting Container Information.\
+`docker inspect <container_id_or_name>`
+
+Copy from container to host.\
+`docker cp <container_id_or_name>:<container_path> <host_path>`
+
+Copy from host to container.\
+`docker cp <host_path> <container_id_or_name>:<container_path>`
+
 Remove all stopped containers.\
 `docker container prune`
 
