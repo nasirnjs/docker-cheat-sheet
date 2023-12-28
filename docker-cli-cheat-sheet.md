@@ -254,6 +254,7 @@ Here's an overview of public and private registries:
 - Definition: Public storage service for Docker images, accessible to anyone.
 - Example: Docker Hub (hub.docker.com).
 - Use Cases: Sharing open-source or community-based images.
+  
 **Private Registry**
 - Definition: Secure storage service for Docker images, requires authentication.
 - Example: Self-hosted or third-party private registries.
@@ -277,7 +278,7 @@ Docker CLI configuration settings, including authentication credentials for Dock
  Display information about disk usage related to Docker.\
  `docker system df`
 
- 
+
 
 
 ## Publishing Ports:
