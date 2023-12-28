@@ -279,6 +279,12 @@ Docker CLI configuration settings, including authentication credentials for Dock
  `docker system df`
 
 
+## Docker Image Layer
+In Docker, images are composed of multiple layers. Caching plays a significant role in optimizing the build process.\
+Let's explore both concepts with examples:\
+
+
+
 
 
 ## Publishing Ports:
