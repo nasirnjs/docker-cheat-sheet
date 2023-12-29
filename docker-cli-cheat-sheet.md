@@ -326,7 +326,8 @@ You can write Docker CMD/ENTRYPOINT instructions in both forms:
 - We can override the value with a command-line argument.
 - We can multiple CMD in a single docker file but only one will be executable while the container start.
 
-Let’s see an example. `vi Dockerfile`\
+Let’s see an example.\
+`vi Dockerfile`
 ```bash
 FROM ubuntu
 RUN apt-get update
@@ -345,7 +346,8 @@ Build and run the docker file.\
 - Just like with CMD, you need to specify a command and parameters.
 - You cannot override the ENTRYPOINT instruction by adding command-line parameters to the docker run command.
 
-We will also see an example. `vi Dockerfile`
+We will also see an example.\
+`vi Dockerfile`
 ```bash
 FROM ubuntu
 RUN apt-get update
