@@ -321,7 +321,7 @@ You can write Docker CMD/ENTRYPOINT instructions in both forms:
 - ENTRYPOINT echo "Hello World" (shell form)
 - ENTRYPOINT ["echo", "Hello World"] (exec form)
 
-**Docker `CMD`**
+**Docker CMD**
 - Whenever we want to override executable while running the container, use `CMD`.
 - We can override the value with a command-line argument.
 - We can multiple CMD in a single docker file but only one will be executable while the container start.
@@ -341,7 +341,7 @@ Build and run the docker file.\
 
 *In a Dockerfile, only the last CMD instruction is effective. If there are multiple CMD instructions, the last one will override the previous ones.*
 
-**Docker `Entrypoint`**
+**Docker Entrypoint**
 - Just like with CMD, you need to specify a command and parameters.
 - You cannot override the ENTRYPOINT instruction by adding command-line parameters to the docker run command.
 
