@@ -289,6 +289,15 @@ Build Docker Image form [Here](https://github.com/nasirnjs/docker-static-site)
 list of `nginx` image layer.\
 `docker image inspect nginx -f '{{.RootFS.Layers}}' | awk -F' ' '{for (i=1; i<=NF; i++) print $i}'`
 
+**Install Dive**
+The dive is a command line tool for analyzing a Docker image. This tool shows image contents broken down by layer. It can used to explore image structure in order to minimize size of Docker image. [Reference](https://github.com/wagoodman/dive)
+
+Install dive on Ubuntu
+`sudo snap install dive`
+
+Uninstall dive
+`sudo apt purge --autoremove -y dive`
+
 
 ## Publishing Ports:
 
