@@ -282,9 +282,9 @@ Docker CLI configuration settings, including authentication credentials for Dock
 ## Docker Image Layer
 In Docker, images are composed of multiple layers. A docker container image is created using a dockerfile. Every line in a dockerfile will create a layer.\
 If you make changes to your Dockerfile and rebuild the image, Docker can reuse cached layers to speed up the process, only rebuilding the layers affected by the changes.  Caching plays a significant role in optimizing the build process.\
-Let's explore both concepts with examples:\
+Let's explore both concepts with examples:
 
-
+Build Docker Image form [Here](https://github.com/nasirnjs/docker-static-site)
 
 list of `nginx` image layer.\
 `docker image inspect nginx -f '{{.RootFS.Layers}}' | awk -F' ' '{for (i=1; i<=NF; i++) print $i}'`
