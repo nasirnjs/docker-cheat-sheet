@@ -400,20 +400,23 @@ Here's how it works:
 For example, a .dockerignore file might look like this:
 ```
 # .dockerignore
-
 # Exclude the Dockerfile
 Dockerfile
-
 # Exclude the README.md file
 README.md
-
 # Exclude the .env file
 .env
-
 # Exclude the .git file
 .git
 ```
 Complete Example is [Here](https://github.com/nasirnjs/docker-static-site)
+
+## Environment variables to Docker containers
+
+Environment variables are key-value pairs that contain data that can be used by processes running inside a Docker container. They are often used to configure application settings and other parameters that may vary between different environments.
+
+[Here](https://github.com/nasirnjs/docker-nodejs-env) is a Nodejs app ENV Example.
+
 
 
 ## docker volume:
