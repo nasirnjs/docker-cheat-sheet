@@ -227,8 +227,8 @@ COPY . /app
 CMD ["python", "app.py"]
 ```
 **Steps 3** Build and run docker image.\
-`docker build -t nasirnjs:hello-python:001`\
-`docker run nasirnjs:hello-python:001`
+`docker build -t nasirnjs/hello-python:0.0.1`\
+`docker run nasirnjs/hello-python:001`
 
 ## Docker Images and Tag:
 List of all image.\
