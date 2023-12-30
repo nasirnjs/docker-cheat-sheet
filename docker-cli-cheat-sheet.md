@@ -181,8 +181,8 @@ Run an interactive shell inside a container.\
 Check container host Name.\
 `docker container exec b71f15d hostname`	
 
-Single container resources consumptions.\
-`docker container top nginx 5ac4`
+ Single container list of the running processes without logging.\
+`docker container top nginx`
 
 Multiple containers stats by name and ID.\
 `docker container stats nginx 5ac4`	
@@ -205,7 +205,7 @@ Remove all stopped containers.\
 A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
 
 **What is docker base image?**\
-A Docker base image is the initial image used as the foundation for building a Docker container.\ 
+A Docker base image is the initial image used as the foundation for building a Docker container.\
 It serves as the starting point from which your application and its dependencies are added to create a runnable environment.\
 Base images are typically pre-configured operating system images with certain tools, libraries, and settings already installed.
 
@@ -426,19 +426,13 @@ ARG and ENV are dockerfile instructions, which you can apply the different confi
 ARG parameters are applied only during the docker image building process they are unavailable once you have built the image.
 Default values can be specified for ARG parameters in the Dockerfile, and they can be modified during image creation.
 
-
-
 You can pass ENV variables not only during the image building but also at runtime when your containers are running.
 ENV can also have a default value in the dockerfile and you can override ENV values.
-
 
 [Here](https://github.com/nasirnjs/docker-nodejs-env) is a Nodejs app ENV Example.
 
 
-
-
-
-## docker volume:
+## Docker volume:
 docker cp
 
 
