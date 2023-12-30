@@ -201,6 +201,14 @@ Remove all stopped containers.\
 
 ## Build a simple Docker Image
 
+**What is a Docker Image?**\
+A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
+
+**What is docker base image?**\
+A Docker base image is the initial image used as the foundation for building a Docker container.\ 
+It serves as the starting point from which your application and its dependencies are added to create a runnable environment.\
+Base images are typically pre-configured operating system images with certain tools, libraries, and settings already installed.
+
 **Here's a basic Dockerfile for a Python "Hello, World!" application.**
 
 **Steps 1** Create a `app.py` file and add print("Hello, World!")
@@ -411,11 +419,22 @@ README.md
 ```
 Complete Example is [Here](https://github.com/nasirnjs/docker-static-site)
 
-## Environment variables to Docker containers
+## Docker Args & Environment Variables
 
-Environment variables are key-value pairs that contain data that can be used by processes running inside a Docker container. They are often used to configure application settings and other parameters that may vary between different environments.
+ARG and ENV are dockerfile instructions, which you can apply the different configurations.
+
+ARG parameters are applied only during the docker image building process they are unavailable once you have built the image.
+Default values can be specified for ARG parameters in the Dockerfile, and they can be modified during image creation.
+
+
+
+You can pass ENV variables not only during the image building but also at runtime when your containers are running.
+ENV can also have a default value in the dockerfile and you can override ENV values.
+
 
 [Here](https://github.com/nasirnjs/docker-nodejs-env) is a Nodejs app ENV Example.
+
+
 
 
 
