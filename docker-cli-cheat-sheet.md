@@ -389,7 +389,7 @@ Let's pass parameters to the docker run command.\
 
 
 ## Don,t Ignore .dockerignore
-The ``.dockerignore` file is used by Docker to specify files and directories that should be excluded (ignored) when building a Docker image. It works similarly to the more widely known `.gitignore` file used by Git to specify files and directories that should be ignored when tracking changes.
+The `.dockerignore` file is used by Docker to specify files and directories that should be excluded (ignored) when building a Docker image. It works similarly to the more widely known `.gitignore` file used by Git to specify files and directories that should be ignored when tracking changes.
 
 Here's how it works:
 
