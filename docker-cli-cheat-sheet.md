@@ -500,6 +500,60 @@ docker inspect bind-mount
 In this case, the `/home/nasir/bind-mount` directory on the host machine is mounted into the default Nginx HTML path `(/usr/share/nginx/html)` inside the bind-nginx container. 
 
 
+## Docker Namespace
+
+Docker namespaces are a key feature of containerization that provide process isolation and resource abstraction, allowing multiple containers to run on the same host without interfering with each other. 
+
+PID (Process ID) Namespace:\
+To check the PID (Process ID) Namespace of a running Docker container, you can use the docker inspect command.\
+Here's an example:
+```
+docker run -d --name=web nginx
+docker inspect --format '{{.State.Pid}}' web
+```
+Network Namespace:\
+Let's use the example command you provided to check the PID and Network Namespace of the running Docker container.\
+`docker inspect --format '{{.NetworkSettings.SandboxKey}}' web`
+
+
+## Docker Cgroups
+
+Docker leverages several control groups (cgroups) controllers to manage and control resource usage within containers. Here are some common cgroups controllers used in Docker, along with examples:
+
+CPU Controller:\
+Example: Limit a container to use a maximum of 50% of one CPU core.
+```
+docker stop my-container  && docker rm my-container
+docker run -d --name my-container --cpus=0.5 nginx
+docker inspect --format '{{.HostConfig.NanoCpus}}' my-container
+```
+
+Memory Controller:\
+Example: Restrict a container to use a maximum of 512 megabytes of memory.
+```
+docker stop my-container  && docker rm my-container
+docker run -d --name my-container --memory=512m nginx
+docker inspect --format '{{.HostConfig.Memory}}' my-container | numfmt --to=iec
+```
+
+Block I/O Controller:\
+Example: Control the maximum read and write rates to block devices for a container.
+```
+docker stop my-container  && docker rm my-container
+docker run -d --name my-container --device-write-bps=/dev/sda:1mb nginx
+docker inspect --format '{{.HostConfig.BlkioDeviceWriteBps}}' my-container | cut -d: -f2 | tr -d ']' | numfmt --to=iec
+```
+
+PIDs Controller:\
+Example: Limit the number of processes a container can create.
+```
+docker stop my-container  && docker rm my-container
+docker run -d --name my-container --pids-limit=100 nginx
+docker inspect --format '{{.HostConfig.PidsLimit}}' my-container
+```
+
+
+
 
 ## Docker Restart Policy:
 
