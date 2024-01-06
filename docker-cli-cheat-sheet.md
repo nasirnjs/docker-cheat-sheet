@@ -346,7 +346,7 @@ Build and run the docker file.\
 `docker run -it ubuntu-test`
 
 *Here, we have passed as parameter Hello World for CMD that prints after container start. Here, we overrode the default value with Hi!*
-`$ docker run -it ubuntu-test echo "Hi!"`
+`docker run -it ubuntu-test echo "Hi!"`
 
 *In a Dockerfile, only the last CMD instruction is effective. If there are multiple CMD instructions, the last one will override the previous ones.*
 
@@ -362,11 +362,12 @@ RUN apt-get update
 ENTRYPOINT ["echo", "Hello Google"]
 ```
 Build and run the docker file.\
-`docker build -t ubuntu-test .`\
+`docker build -t ubuntu-test .`
+\
 `docker run -it ubuntu-test`
 
 It worked the same as CMD but when we have passed parameters will be see difference.\
-`$ docker run -it ubuntu-test:latest "Hello from AWS"`
+`docker run -it ubuntu-test:latest "Hello from AWS"`
 
 *we have passed parameters but the executable hasn’t overridden and also added a new parameter with the old parameter.*
 
@@ -632,6 +633,10 @@ docker service create --network=my_overlay_network my_service
 *Description:*
 - Enables multi-host networking in Docker Swarm.
 - Uses overlay networks for communication across different hosts.
+
+
+## Building Multi Container Application with Docker
+
 
 
 ## Container Cleanup:
