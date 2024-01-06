@@ -556,11 +556,13 @@ docker inspect --format '{{.HostConfig.PidsLimit}}' my-container
 
 Docker networking facilitates communication between containers and the external environment through the host machine where the Docker daemon operates.
 
+Docker comes with five built-in network drivers that implement core networking functionality. Network (bridge, host, ipvlan, macvlan, null & overlay)
+
 **Here are examples and brief descriptions for each of the mentioned Docker network drivers.**
 
 Check available network drivers from the "Plugins" section under "Server" vi `docker info` command.
 
-**Bridge Driver Example:**
+**1. Bridge Driver Example:**
 ```bash
 docker network create --driver=bridge my_bridge_net
 docker run --network=my_bridge_net -d --name=web-server nginx
@@ -572,7 +574,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
 - Default driver for container communication on a single host.
 - Containers share the host's network stack by default.
 
-**Host Driver Example:**
+**2. Host Driver Example:**
 `docker run --network=host -d --name=web-server nginx`
 
 *Description:*
@@ -580,7 +582,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
 - No network isolation between containers.
 - Bind them to the same host port 80.
 
-**IPvlan Driver Example:**
+**3. IPvlan Driver Example:**
 
 ```bash
 docker network create -d ipvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o ipvlan_mode=l2 my_ipvlan_net\n
@@ -593,7 +595,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' web
 - Configures sub-interfaces with unique MAC and IP addresses.
 - Containers can directly connect to the physical network.
 
-**Macvlan Driver Example:**
+**4. Macvlan Driver Example:**
 
 ```
 docker network create -d macvlan --subnet=192.168.10.0/24 --gateway=192.168.10.1 -o parent=eno1 my_macvlan_network
@@ -607,7 +609,7 @@ docker inspect -f '{{.NetworkSettings.Networks.my_macvlan_network.IPAddress}} {{
 - Creates sub-interfaces with unique MAC and IP addresses.
 - Containers appear as individual devices on the network.
 
-**Nll Driver Example:**
+**5. Nll Driver Example:**
 
 ```
 docker run --network=none -d --name=web-server nginx
@@ -620,7 +622,7 @@ docker inspect -f '{{.NetworkSettings.Networks.none.IPAddress}} {{.NetworkSettin
 - Provides an isolated environment where containers can't communicate.
 - Useful for scenarios requiring complete network isolation.
 
-**Overlay Driver Example:**
+**6. Overlay Driver Example:**
 
 ```
 docker network create --driver=overlay my_overlay_network
